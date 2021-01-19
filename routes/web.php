@@ -21,3 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('lang/{lang}', 'LangController@changeLanguage')->name('lang');
+Route::group(['prefix' => 'admin', 'namespace'=>'Admin', 'middleware'=>'admin'], function () {
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+});
