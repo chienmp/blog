@@ -1,5 +1,8 @@
 {
     "Login": "Đăng nhập",
     "Register": "Đăng ký",
-    "Logout" : "Đăng xuất"
+    "Logout" : "Đăng xuất",
+    "oldmember": "Thành viên cũ",
+    "require_text": "Chú ý : Không được để trống trường nào",
+    "new_account": "Tạo tài khoản mới"
 }
