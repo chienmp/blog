@@ -2,7 +2,9 @@
     "Login": "Đăng nhập",
     "Register": "Đăng ký",
     "Logout" : "Đăng xuất",
-    "oldmember": "Thành viên cũ",
+    "oldmember": "Thành viên cũ ? Đăng nhập ngay",
     "require_text": "Chú ý : Không được để trống trường nào",
-    "new_account": "Tạo tài khoản mới"
+    "new_account": "Tạo tài khoản mới",
+    "lang": "Chọn ngôn ngữ :",
+    "social":"Đăng nhập bằng MXH :"
 }

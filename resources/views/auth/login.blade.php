@@ -13,6 +13,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/flag-icon-css/css/flag-icon.css') }}">
 </head>
 
 <body>
@@ -60,7 +61,14 @@
                             </div>
                         </form>
                         <div class="social-login">
-                            <span class="social-label">Or login with</span>
+                            <span class="social-label">{{ trans('lang') }}</span>
+                            <ul class="socials">
+                                <li><a href="{{ route('lang',['lang' => 'vi']) }}"><i class="display-flex-center flag-icon flag-icon-vn"></i></a></li>
+                                <li><a href="{{ route('lang',['lang' => 'en']) }}"><i class="display-flex-center flag-icon flag-icon-gb"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="social-login">
+                            <span class="social-label">{{ trans('social') }}</span>
                             <ul class="socials">
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
@@ -73,6 +81,6 @@
         </section>
     </div>
     <!-- JS -->
-    <script src="{{ asset('jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 </body>

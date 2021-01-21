@@ -2,7 +2,9 @@
     "Login": "Login",
     "Register": "Register",
     "Logout": "Logout",
-    "oldmember": "I am already a member",
+    "oldmember": "Already a member? Login now",
     "require_text": "Notice : All field are required",
-    "new_account": "Create an account"
+    "new_account": "Create an account",
+    "lang": "Choose language: ",
+    "social": "Login with"
 }

@@ -13,6 +13,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/flag-icon-css/css/flag-icon.css') }}">
 </head>
 
 <body>
@@ -64,6 +65,13 @@
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="{{ trans('Register') }}" />
                             </div>
                         </form>
+                        <div class="social-login">
+                            <span class="social-label">{{ trans('lang') }}</span>
+                            <ul class="socials">
+                                <li><a href="{{ route('lang',['lang' => 'vi']) }}"><i class="display-flex-center flag-icon flag-icon-vn"></i></a></li>
+                                <li><a href="{{ route('lang',['lang' => 'en']) }}"><i class="display-flex-center flag-icon flag-icon-gb"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="signup-image">
                         <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
