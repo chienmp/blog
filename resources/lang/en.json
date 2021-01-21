@@ -1,5 +1,8 @@
 {
     "Login": "Login",
     "Register": "Register",
-    "Logout": "Logout"
+    "Logout": "Logout",
+    "oldmember": "I am already a member",
+    "require_text": "Notice : All field are required",
+    "new_account": "Create an account"
 }
