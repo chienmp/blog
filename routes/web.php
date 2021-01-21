@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/index', function () {
+    return view('Admin.master');
+});
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('lang/{lang}', 'LangController@changeLanguage')->name('lang');
 Route::group(['prefix' => 'admin', 'namespace'=>'Admin', 'middleware'=>'admin'], function () {
