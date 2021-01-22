@@ -6,5 +6,9 @@
     "require_text": "Notice : All field are required",
     "new_account": "Create an account",
     "lang": "Choose language: ",
-    "social": "Login with"
+    "social": "Login with",
+    "Tag": "Tag",
+    "Home": "Home page",
+    "Categories": "Category",
+    "users_management": "User management"
 }
