@@ -10,5 +10,11 @@
     "Tag": "Tag",
     "Home": "Home page",
     "Categories": "Category",
-    "users_management": "User management"
+    "Dashboard": "ADMIN MATERIAL DASHBOARD",
+    "users_management": "User management",
+    "pending_posts":"Pending Posts",
+    "favor_posts":"Favorite posts",
+    "subcriber": "Subcriber",
+    "setting": "Settings",
+    "wait": "Please wait..."
 }
