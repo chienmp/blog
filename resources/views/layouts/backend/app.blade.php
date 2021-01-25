@@ -28,10 +28,11 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{ asset('bower_components/adminbsb-materialdesign/css/themes/all-themes.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('bower_components/toastr/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/flag-icon-css/css/flag-icon.css') }}">
     @stack('css')
 </head>
 
-<body class="theme-teal">
+<body class="theme-red">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -95,7 +96,7 @@
     <!-- Demo Js -->
     <script src="{{ asset('bower_components/adminbsb-materialdesign/js/demo.js') }}"></script>
     <script src="{{ asset('bower_components/toastr/toastr.min.js') }}"></script>
-    {{-- {!! Toastr::message() !!}
+    <!-- {{-- {!! Toastr::message() !!}
     <script>
         @if($errors->any())
         @foreach($errors->all() as $error)
@@ -105,7 +106,7 @@
                });
         @endforeach
     @endif
-    </script> --}}
+    </script> --}} -->
     @stack('js')
 </body>
 
