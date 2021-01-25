@@ -16,5 +16,15 @@
     "favor_posts":"Favorite posts",
     "subcriber": "Subcriber",
     "setting": "Settings",
-    "wait": "Please wait..."
+    "wait": "Please wait...",
+    "your_email": "Your email",
+    "password": "Password",
+    "comment": "Comment",
+    "main_nav": "Main navigation",
+    "add_tag": "Add New Tag",
+    "submit": "Submit",
+    "back": "back",
+    "tag_name": "Tag name    ex:#JS,#Anime.....",
+    "edit_tag": "Edit Tag",
+    "tag_slug": "Tag slug"
 }

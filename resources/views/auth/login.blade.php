@@ -34,7 +34,7 @@
                         @csrf
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="email" name="email" id="your_name" class=" @error('email') is-invalid @enderror" placeholder="Your Email" />
+                                <input type="email" name="email" id="your_name" class=" @error('email') is-invalid @enderror" placeholder="{{ trans('your_email') }}" />
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -43,8 +43,11 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" class="@error('password') is-invalid @enderror" id="your_pass" placeholder="Password" />
+                                <label for="your_pass">
+                                    <i class="zmdi zmdi-lock">
+                                    </i>
+                                    </label>
+                                <input type="password" name="password" class="@error('password') is-invalid @enderror" id="your_pass" placeholder="{{ trans('password') }}" />
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -54,10 +57,10 @@
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember" id="remember" class="form-check-input"  {{ old('remember') ? 'checked' : '' }} />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span>{{ trans('Remember me') }}</label>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="{{ trans('Login') }}" />
                             </div>
                         </form>
                         <div class="social-login">

@@ -6,8 +6,8 @@
                 height="48" alt="User" />
         </div>
         <div class="info-container">
-            <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">chien</div>
-            <div class="email">admin@email.com</div>
+            <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
+            <div class="email">{{ Auth::user()->email }}</div>
             <div class="btn-group user-helper-dropdown">
                 <i class="material-icons" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="true">keyboard_arrow_down</i>
@@ -34,7 +34,6 @@
     <div class="menu">
         <ul class="list">
             <li class="header">{{ trans('main_nav') }}</li>
-            {{-- @if(Request::is('admin*')) --}}
             <li class="active">
                 <a href="#">
                     <i class="material-icons">dashboard</i>
@@ -42,7 +41,7 @@
                 </a>
             </li>
             <li class="active">
-                <a href="#">
+                <a href="{{ route('tags.index') }}">
                     <i class="material-icons">label</i>
                     <span>{{ trans('Tag') }}</span>
                 </a>
@@ -71,7 +70,7 @@
                     <span>{{ trans('favor_posts') }}</span>
                 </a>
             </li>
-            <li active">
+            <li class="active">
                 <a href="#">
                     <i class="material-icons">comment</i>
                     <span>{{ trans('comment') }}</span>
@@ -80,7 +79,7 @@
             <li class="active">
                 <a href="#">
                     <i class="material-icons">account_circle</i>
-                    <span>{{ Authors }}</span>
+                    <span>{{ trans('author') }}</span>
                 </a>
             </li>
             <li class="active">
@@ -106,7 +105,6 @@
                     @csrf
                 </form>
             </li>
-            {{-- @endif --}}
         </ul>
     </div>
     <!-- #Menu -->

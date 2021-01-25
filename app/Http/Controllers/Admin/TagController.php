@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tag;
 use Illuminate\Http\Request;
+use App\Models\Tag;
 
 class TagController extends Controller
 {
@@ -15,9 +15,9 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
+       $tags = Tag::all();
 
-        return view('admin.tag.index', compact('tag'));
+       return view('admin.tag.index', compact('tags'));
     }
 
     /**
@@ -38,9 +38,9 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        $tag = Tag::create($request->all());
+        Tag::create($request->all());
 
-        return view('admin.tag.index');
+        return redirect()->route('tags.index');
     }
 
     /**
@@ -51,7 +51,7 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -64,7 +64,7 @@ class TagController extends Controller
     {
         $tag = Tag::findOrFail($id);
 
-        return view('admin.tag.edit');
+        return view('admin.tag.edit', compact('tag'));
     }
 
     /**
@@ -76,10 +76,10 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tag = Tag::findOrFail($id);
+        $tag =Tag::findOrFail($id);
         $tag->update($request->all());
 
-        return view('admin.tag.index');
+        return redirect()->route('tags.index');
     }
 
     /**
