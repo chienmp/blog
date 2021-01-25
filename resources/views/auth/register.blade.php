@@ -28,7 +28,7 @@
                         @csrf
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" class="@error('name') is-invalid @enderror" id="name" placeholder="Your Name" />
+                                <input type="text" name="name" class="@error('name') is-invalid @enderror" id="name" placeholder="{{ trans('your_name') }}" />
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -38,8 +38,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" 
-                                class="@error('email') is-invalid @enderror" placeholder="Your Email" />
+                                <input type="email" name="email" id="email"
+                                class="@error('email') is-invalid @enderror" placeholder="{{ trans('your_email') }}" />
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -48,8 +48,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" 
-                                class="@error('password') is-invalid @enderror" id="pass" placeholder="Password" />
+                                <input type="password" name="password"
+                                class="@error('password') is-invalid @enderror" id="pass" placeholder="{{ trans('password') }}" />
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -58,8 +58,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="password_confirmation" 
-                                id="re_pass" placeholder="Repeat your password" />
+                                <input type="password" name="password_confirmation"
+                                id="re_pass" placeholder="{{ trans('password_repeat') }}" />
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="{{ trans('Register') }}" />

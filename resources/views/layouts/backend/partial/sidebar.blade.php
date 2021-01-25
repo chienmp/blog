@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li class="active">
-                <a href="#">
+                <a href="{{ route('tag.index') }}">
                     <i class="material-icons">label</i>
                     <span>{{ trans('Tag') }}</span>
                 </a>
@@ -71,7 +71,7 @@
                     <span>{{ trans('favor_posts') }}</span>
                 </a>
             </li>
-            <li active">
+            <li class="active">
                 <a href="#">
                     <i class="material-icons">comment</i>
                     <span>{{ trans('comment') }}</span>
@@ -80,7 +80,7 @@
             <li class="active">
                 <a href="#">
                     <i class="material-icons">account_circle</i>
-                    <span>{{ Authors }}</span>
+                    <span>{{ trans('author') }}</span>
                 </a>
             </li>
             <li class="active">
