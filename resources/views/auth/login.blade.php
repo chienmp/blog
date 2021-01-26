@@ -57,10 +57,10 @@
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember" id="remember" class="form-check-input"  {{ old('remember') ? 'checked' : '' }} />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span>{{ trans('Remember me') }}</label>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="{{ trans('Login') }}" />
                             </div>
                         </form>
                         <div class="social-login">
