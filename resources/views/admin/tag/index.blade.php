@@ -25,6 +25,7 @@
                 </div>
                 <div class="body">
                     <div class="table-responsive">
+
                         <table id="example" class="table table-striped table-bordered" >
                             <thead>
                                 <tr>
@@ -36,12 +37,14 @@
                             <tfoot>
                                 <th>{{ trans('name') }}</th>
                                 <th>{{ trans('slug') }}</th>
+
                                 <th>{{ trans('action') }}</th>
                             </tfoot>
                             <tbody>
                                 @foreach($tags as $tag)
                                 <tr>
                                     <td>{{ $tag->name }}</td>
+
                                     {{-- <td>{{ $tag->posts->count() }}</td> --}}
                                     <td>{{ $tag->slug}}</td>
                                     <td a class="text-center">
@@ -55,6 +58,7 @@
                                         </button>
                                         <form id="delete-form-{{ $tag->id }}"
                                             action="{{ route('tags.destroy',$tag->id) }}" method="POST"
+
                                             style="display: none;">
                                             @csrf
                                             @method('DELETE')
@@ -73,6 +77,7 @@
     @endsection
 @push('js')
 <script src="{{ asset('js/dt.js') }}"></script>
+
 {{-- <script src="{{ asset('bower_components/datatables/media/js/jquery.js') }}"></script> --}}
 <script src="{{ asset('bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('bower_components/datatables/media/js/dataTables.bootstrap.min.js') }}"></script>
