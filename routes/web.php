@@ -29,6 +29,3 @@ Route::group(['prefix' => 'admin', 'namespace'=>'Admin', 'middleware'=>'admin'],
     Route::resource('tags', 'TagController');
     Route::resource('category', 'CategoryController');
 });
-Route::get('/page', function () {
-    return view('layouts.frontend.app');
-});
