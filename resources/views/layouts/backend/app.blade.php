@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link href="{{ asset('fonts/icons.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('fonts/icons.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/font-awsesome-all.min.css') }}" type="text/css" />
     <!-- Bootstrap Core Css -->
     <link href="{{ asset('bower_components/adminbsb-materialdesign/plugins/bootstrap/css/bootstrap.css') }}"
         rel="stylesheet">
@@ -31,7 +31,7 @@
     @stack('css')
 </head>
 
-<body class="theme-teal">
+<body class="theme-red">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -94,7 +94,7 @@
     <script src="{{ asset('bower_components/adminbsb-materialdesign/js/admin.js') }}"></script>
     <!-- Demo Js -->
     <script src="{{ asset('bower_components/adminbsb-materialdesign/js/demo.js') }}"></script>
-    <script src="{{ asset('bower_components/toastr/toastr.min.js') }}"></script>
+    {{-- <script src="{{ asset('bower_components/toastr/toastr.min.js') }}"></script> --}}
     {{-- {!! Toastr::message() !!}
     <script>
         @if($errors->any())
@@ -107,6 +107,7 @@
     @endif
     </script> --}}
     @stack('js')
+
 </body>
 
 </html>
