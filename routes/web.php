@@ -27,4 +27,5 @@ Route::get('lang/{lang}', 'LangController@changeLanguage')->name('lang');
 Route::group(['prefix' => 'admin', 'namespace'=>'Admin', 'middleware'=>'admin'], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('tags', 'TagController');
+    Route::resource('category', 'CategoryController');
 });
