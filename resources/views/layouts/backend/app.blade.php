@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="{{ asset('love_heart_icon_178900.ico') }}">
+    <link rel="icon" type="image/png" href="{{ asset('blog-icon.png') }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') - {{ config('app.name', 'Laravel') }}</title>
     <!-- Google Fonts -->
     <link href="{{ asset('fonts/icons.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('fonts/icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('fonts/roboto.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/font-awsesome-all.min.css') }}" type="text/css" />
     <!-- Bootstrap Core Css -->
     <link href="{{ asset('bower_components/adminbsb-materialdesign/plugins/bootstrap/css/bootstrap.css') }}"
@@ -27,7 +27,7 @@
     <link href="{{ asset('bower_components/adminbsb-materialdesign/css/style.css') }}" rel="stylesheet">
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{ asset('bower_components/adminbsb-materialdesign/css/themes/all-themes.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('bower_components/toastr/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/flag-icon-css/css/flag-icon.css') }}">
     @stack('css')
 </head>
 
@@ -78,6 +78,7 @@
     </section>
     <!-- Jquery Core Js -->
     <script src="{{ asset('bower_components/adminbsb-materialdesign/plugins/jquery/jquery.min.js') }}"></script>
+    
     <!-- Bootstrap Core Js -->
     <script src="{{ asset('bower_components/adminbsb-materialdesign/plugins/bootstrap/js/bootstrap.js') }}"></script>
     <!-- Select Plugin Js -->
@@ -93,9 +94,13 @@
     <!-- Custom Js -->
     <script src="{{ asset('bower_components/adminbsb-materialdesign/js/admin.js') }}"></script>
     <!-- Demo Js -->
-    <script src="{{ asset('bower_components/adminbsb-materialdesign/js/demo.js') }}"></script>
-    {{-- <script src="{{ asset('bower_components/toastr/toastr.min.js') }}"></script> --}}
-    {{-- {!! Toastr::message() !!}
+    <scrip src="{{ asset('bower_components/adminbsb-materialdesign/js/demo.js') }}"></scrip>
+    <!-- Sweet alert 2 -->
+    <scrip src="{{ mix('js/sweetalert2.all.js') }}"></scrip>
+    {{-- custom script --}}
+    <script src="{{ asset('js/main.js') }}"></script>
+    @include('sweetalert::alert')
+    <!-- {{-- {!! Toastr::message() !!}
     <script>
         @if($errors->any())
         @foreach($errors->all() as $error)
@@ -105,7 +110,7 @@
                });
         @endforeach
     @endif
-    </script> --}}
+    </script> --}} -->
     @stack('js')
 
 </body>
