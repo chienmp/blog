@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
 {
@@ -38,9 +41,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
+        $filename = $request->image->getClientOriginalName();
+        $category = new Category;
+        $category->name = $request->name;
+        $category->image = $filename;
+        $category->save();
+        $request->image->storeAs('public/category', $filename);
+        Alert::success('Successfully', 'Category created');
 
-        return view('admin.category.index');
+        return back();
     }
 
     /**
@@ -75,10 +84,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cate =Category::findOrFail($id);
-        $cate->update($request->all());
+        $cate = Category::findOrFail($id);
+        $cate->name= $request->name;
+        if($request->hasFile('image')){
+            $filename = $request->image->getClientOriginalName();
+            $cate->image = $filename;
+            $request->image->storeAs('public/category', $filename);
+        }
+        $cate->save();
+        Alert::success('Success', 'Updated category');
 
-        return view('admin.category.index');
+        return redirect()->route('category.index');
     }
 
     /**

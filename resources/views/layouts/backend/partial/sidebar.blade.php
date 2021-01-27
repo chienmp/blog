@@ -6,7 +6,8 @@
                 height="48" alt="User" />
         </div>
         <div class="info-container">
-            <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
+            <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}
+            </div>
             <div class="email">{{ Auth::user()->email }}</div>
             <div class="btn-group user-helper-dropdown">
                 <i class="material-icons" data-toggle="dropdown" aria-haspopup="true"
@@ -47,7 +48,7 @@
                 </a>
             </li>
             <li class="active">
-                <a href="#">
+                <a href="{{ route('category.index') }}">
                     <i class="material-icons">apps</i>
                     <span>{{ trans('Categories') }}</span>
                 </a>
@@ -78,22 +79,24 @@
             </li>
             <li class="active">
                 <a href="#">
-                    <i class="material-icons">account_circle</i>
-                    <span>{{ trans('author') }}</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="#">
                     <i class="material-icons">subscriptions</i>
                     <span>{{ trans('subcriber') }}</span>
                 </a>
             </li>
-            <li class="header">System</li>
             <li class="active">
-                <a href="#">
-                    <i class="material-icons">settings</i>
-                    <span>{{ trans('setting') }}</span>
+                <a href="javascript:void(0);" class="menu-toggle">
+                    <i class="material-icons">assignment</i>
+                    <span>{{ trans('lang') }}</span>
                 </a>
+                <ul class="ml-menu">
+                    <li>
+                        <a href="{{ route('lang', ['lang' => 'vi']) }}"><i class="flag-icon flag-icon-vn"></i>
+                            &nbsp;{{ trans('Vietnam') }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('lang', ['lang' => 'en']) }}"><i class="flag-icon flag-icon-gb"></i>
+                            &nbsp;{{ trans('English') }}</a>
+                </ul>
             </li>
             <li>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

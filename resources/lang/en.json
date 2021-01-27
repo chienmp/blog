@@ -24,7 +24,13 @@
     "add_tag": "Add New Tag",
     "submit": "Submit",
     "back": "back",
-    "tag_name": "Tag name    ex:#JS,#Anime.....",
+    "tag_name": "Field name    ex:#JS,#Anime.....",
     "edit_tag": "Edit Tag",
-    "tag_slug": "Tag slug"
+    "tag_slug": "Field slug",
+    "blog": "Blog Homepage",
+    "new_cate": "New Category",
+    "All_cates": "All Category",
+    "edit_cate": "Edit Category",
+    "upload_image": "Upload image",
+    "add_cate": "Add new category"
 }

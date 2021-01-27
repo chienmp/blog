@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/css/material-components-web.min.css": "/css/material-components-web.min.css"
+    "/css/material-components-web.min.css": "/css/material-components-web.min.css",
+    "/js/sweetalert2.all.js": "/js/sweetalert2.all.js"
 }
