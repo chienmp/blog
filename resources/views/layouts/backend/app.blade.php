@@ -97,7 +97,7 @@
     <script src="{{ asset('bower_components/adminbsb-materialdesign/js/demo.js') }}"></script>
     <!-- Sweet alert 2 -->
     <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
-    {{-- custom script --}}
+    <!-- {{-- custom script --}} -->
     <script src="{{ asset('js/main.js') }}"></script>
     @include('sweetalert::alert')
     @stack('js')
