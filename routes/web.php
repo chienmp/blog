@@ -18,6 +18,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('posts','Admin\PostController@index')->name('post.index');
+Route::get('/search','SearchController@search')->name('search');
+Route::post('subcribe', 'SubcriberController@store')->name('subcriber.store');
+Route::get('about', 'HomeController@about')->name('about');
 
 Route::get('/index', function () {
     return view('Admin.master');
