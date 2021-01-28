@@ -54,7 +54,7 @@
                 </a>
             </li>
             <li class="active">
-                <a href="#">
+                <a href="{{ route('posts.index') }}">
                     <i class="material-icons">library_books</i>
                     <span>{{ trans('Posts') }}</span>
                 </a>

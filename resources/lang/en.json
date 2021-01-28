@@ -32,5 +32,10 @@
     "All_cates": "All Category",
     "edit_cate": "Edit Category",
     "upload_image": "Upload image",
-    "add_cate": "Add new category"
+    "add_cate": "Add new category",
+    "Posted": "Published",
+    "hidden": "Hidden",
+    "view_count": "View counts",
+    "All_posts": "All Posts",
+    "new_post": "Add new post"
 }
