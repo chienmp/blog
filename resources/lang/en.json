@@ -10,7 +10,11 @@
     "Tag": "Tag",
     "Home": "Home page",
     "Categories": "Category",
-    "Dashboard": "ADMIN MATERIAL DASHBOARD",
+    "add_post": "Add new post",
+    "subcribe": "Subcribe to get newest post",
+    "load_more": "LOAD MORE",
+    "Dashboard": "DASHBOARD",
+    "no_data": "No Data Found :( ",
     "users_management": "User management",
     "pending_posts":"Pending Posts",
     "favor_posts":"Favorite posts",
@@ -37,5 +41,10 @@
     "hidden": "Hidden",
     "view_count": "View counts",
     "All_posts": "All Posts",
-    "new_post": "Add new post"
+    "new_post": "Add new post",
+    "about": "About Me",
+    "post_comment": "[0,1] Post Comment |[2,*] Post Comments",
+    "comment_alert": "For post a new comment. You need to login first",
+    "enter_com": "Enter your comment",
+    "submit_com": "Post Comment"
 }

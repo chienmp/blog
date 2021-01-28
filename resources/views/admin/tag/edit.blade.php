@@ -25,9 +25,6 @@
                             <div class="form-line">
                                 <input type="text" id="name" class="form-control" name="name" value="{{ $tag->name }}">
                             </div>
-                            <div class="form-line">
-                                <input type="text" id="name" class="form-control" name="slug" value="{{ $tag->slug }}">
-                            </div>
                         </div>
                         <a class="btn btn-danger m-t-15 waves-effect"
                             href="{{ route('tags.index') }}">{{ trans('back') }}</a>

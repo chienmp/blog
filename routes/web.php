@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,15 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('posts','Admin\PostController@index')->name('post.index');
+Route::get('/search','SearchController@search')->name('search');
+Route::post('subcribe', 'SubcriberController@store')->name('subcriber.store');
+Route::get('about', 'HomeController@about')->name('about');
 
-Route::get('/index', function () {
-    return view('Admin.master');
+Route::group(['middleware'=>'auth'], function () {
+    Route::get('favorite/{id}/add', 'FavoriteController@add')->name('post.favorite');
 });
+Route::get('/post/{id}', 'PostController@details')->name('post');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('lang/{lang}', 'LangController@changeLanguage')->name('lang');
 Route::group(['prefix' => 'admin', 'namespace'=>'Admin', 'middleware'=>'admin'], function () {
