@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tag;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TagController extends Controller
 {
@@ -39,6 +40,7 @@ class TagController extends Controller
     public function store(Request $request)
     {
         Tag::create($request->all());
+        Alert::success('Success Title', 'Success Message');
 
         return redirect()->route('tags.index');
     }

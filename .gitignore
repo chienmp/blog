@@ -13,3 +13,6 @@ yarn-error.log
 bower.json
 .bowerrc
 /public/bower_components
+/public/assets
+/public/css
+/public/js
