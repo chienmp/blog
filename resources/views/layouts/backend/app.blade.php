@@ -94,23 +94,12 @@
     <!-- Custom Js -->
     <script src="{{ asset('bower_components/adminbsb-materialdesign/js/admin.js') }}"></script>
     <!-- Demo Js -->
-    <scrip src="{{ asset('bower_components/adminbsb-materialdesign/js/demo.js') }}"></scrip>
+    <script src="{{ asset('bower_components/adminbsb-materialdesign/js/demo.js') }}"></script>
     <!-- Sweet alert 2 -->
-    <scrip src="{{ mix('js/sweetalert2.all.js') }}"></scrip>
+    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
     {{-- custom script --}}
     <script src="{{ asset('js/main.js') }}"></script>
     @include('sweetalert::alert')
-    <!-- {{-- {!! Toastr::message() !!}
-    <script>
-        @if($errors->any())
-        @foreach($errors->all() as $error)
-              toastr.error('{{ $error }}','Error',{
-                  closeButton:true,
-                  progressBar:true,
-               });
-        @endforeach
-    @endif
-    </script> --}} -->
     @stack('js')
 
 </body>
