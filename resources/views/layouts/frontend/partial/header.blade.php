@@ -24,6 +24,8 @@
                     @if (Auth::user()->role->id == 1)
                         <li><a href="{{ route('admin.dashboard') }}">{{ trans('Dashboard') }}</a></li>
                     @endif
+                    @if(Auth::user(->role->id) == 1)
+                    <li><a href="{{ route('profile') }}">{{ trans('Profile') }}</a></li>
                 @endguest
             </ul><!-- main-menu -->
 
