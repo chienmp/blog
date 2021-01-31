@@ -54,5 +54,4 @@
         <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
         </script>
 </body>
-
 </html>

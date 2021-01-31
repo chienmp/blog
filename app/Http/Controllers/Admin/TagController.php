@@ -42,6 +42,7 @@ class TagController extends Controller
         Tag::create($request->all());
         Alert::success('Success', 'Created');
 
+
         return redirect()->route('tags.index');
     }
 

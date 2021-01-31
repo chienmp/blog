@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>about page</h2>
+    <p>This is profile page</p>
 </body>
 </html>
