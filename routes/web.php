@@ -18,6 +18,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('posts','Admin\PostController@index')->name('post.index');
+Route::get('/search','SearchController@search')->name('search');
+Route::post('subcribe', 'SubcriberController@store')->name('subcriber.store');
+Route::get('about', 'HomeController@about')->name('about');
 
 Route::get('/index', function () {
     return view('Admin.master');
@@ -28,4 +32,5 @@ Route::group(['prefix' => 'admin', 'namespace'=>'Admin', 'middleware'=>'admin'],
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('tags', 'TagController');
     Route::resource('category', 'CategoryController');
+    Route::resource('posts', 'PostController');
 });

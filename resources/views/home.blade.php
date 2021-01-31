@@ -2,8 +2,8 @@
 
 @section('title', 'Home')
     @push('css')
-        <link rel="stylesheet" href="{{ asset('css/frontend/home/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/frontend/home/responsive.css') }}">
+    <link href="{{ asset('assets/frontend/css/home/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/home/responsive.css') }}" rel="stylesheet">
     @endpush
 
 @section('content')
@@ -13,25 +13,25 @@
             data-swiper-breakpoints="true" data-swiper-loop="true">
             <div class="swiper-wrapper">
 
-                {{-- @forelse($categories as $category) --}}
-                <div class="swiper-slide">
-                    <a class="slider-category" href="#">
-                        <div class="blog-image"><img src="#" alt="#"></div>
-                        <div class="category">
-                            <div class="display-table center-text">
-                                <div class="display-table-cell">
-                                    <h3><b>1</b></h3>
+                @forelse($categories as $category)
+                    <div class="swiper-slide">
+                        <a class="slider-category" href="#">
+                            <div class="blog-image"><img width="333px" height="450px" src="{{ asset('storage/category/' . $category->image) }}" alt="{{ $category->name }}"></div>
+                            <div class="category">
+                                <div class="display-table center-text">
+                                    <div class="display-table-cell">
+                                        <h3><b>{{ $category->name }}</b></h3>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </a>
-                </div><!-- swiper-slide -->
-                {{-- @empty --}}
-                <div class="swiper-slide">
-                    <strong>No Data Found :(</strong>
-                </div><!-- swiper-slide -->
-                {{-- @endforelse --}}
+                        </a>
+                    </div><!-- swiper-slide -->
+                @empty
+                    <div class="swiper-slide">
+                        <strong>{{ trans('no_data') }}</strong>
+                    </div><!-- swiper-slide -->
+                @endforelse
             </div><!-- swiper-wrapper -->
 
         </div><!-- swiper-container -->
@@ -42,42 +42,48 @@
 
             <div class="row">
 
-                {{-- @forelse($posts as $post) --}}
+                @forelse($posts as $post)
                 <div class="col-lg-4 col-md-6">
                     <div class="card h-100">
                         <div class="single-post post-style-1">
 
-                            <div class="blog-image"><img src="#"></div>
+                            <div class="blog-image"><img src="{{ asset('assets/frontend/images/averie-woodard-319832.jpg') }}"></div>
 
-                            <a class="avatar" href="#"><img src="#" alt="Profile Image"></a>
+                            <a class="avatar" href="#"><img
+                                    src="{{ asset('bower_components/adminbsb-materialdesign/images/image-gallery/15.jpg') }}"
+                                    alt="Profile Image"></a>
 
                             <div class="blog-info">
 
-                                <h4 class="title"><a href="#"><b>1</b></a></h4>
+                                <h4 class="title"><a href="#"><b>{{ $post->title }}</b></a></h4>
 
                                 <ul class="post-footer">
 
-                                    <li>
+                                    {{-- <li>
                                         @guest
-                                            <a href="javascript:void(0);" onclick="toastr.info('To add favorite list. You need to login first.','Info',{
-                                                            closeButton: true,
-                                                            progressBar: true,
-                                                        })"><i class="ion-heart"></i>2</a>
-                                            {{-- @else --}}
-                                            <a href="javascript:void(0);"
-                                                onclick="document.getElementById('favorite-form').submit();" class="33"><i
-                                                    class="ion-heart"></i></a>
+                                            <a href="#" onclick="toastr.info('To add favorite list. You need to login first.','Info',{
+                                                                    closeButton: true,
+                                                                    progressBar: true,
+                                                                })"><i class="ion-heart-empty"></i>2</a>
+                                            @else
+                                            <a href="#"
+                                                onclick="document.getElementById('favorite-form').submit();" class="33">
+                                                <i class="ion-heart"></i>
+                                            </a>
 
                                             <form id="favorite-form" method="POST" action="#" style="display: none;">
                                                 @csrf
                                             </form>
                                         @endguest
+                                    </li> --}}
+                                    <li>
+                                        <a href="#"><i class="ion-heart"></i>2</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="ion-chatbubble"></i></a>
+                                        <a href="#"><i class="ion-chatbubble"></i>3</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="ion-eye"></i></a>
+                                        <a href="#"><i class="ion-eye"></i>{{ $post->view_count }}</a>
                                     </li>
                                 </ul>
 
@@ -85,19 +91,19 @@
                         </div><!-- single-post -->
                     </div><!-- card -->
                 </div><!-- col-lg-4 col-md-6 -->
-                {{-- @empty --}}
+                @empty
                 <div class="col-lg-12 col-md-12">
                     <div class="card h-100">
                         <div class="single-post post-style-1 p-2">
-                            <strong>No Post Found :(</strong>
+                            <strong>{{ trans('no_data') }}</strong>
                         </div><!-- single-post -->
                     </div><!-- card -->
                 </div><!-- col-lg-4 col-md-6 -->
-                {{-- @endforelse --}}
+                @endforelse
 
             </div><!-- row -->
 
-            <a class="load-more-btn" href="#"><b>LOAD MORE</b></a>
+            <a class="load-more-btn" href="#"><b>{{ trans('load_more') }}</b></a>
 
         </div><!-- container -->
     </section><!-- section -->
