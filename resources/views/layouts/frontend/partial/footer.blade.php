@@ -4,10 +4,8 @@
 
             <div class="col-lg-4 col-md-6">
                 <div class="footer-section">
-
-                    {{--<a class="logo" href="#"><img src="images/logo.png" alt="Logo Image"></a>--}}
                     <p class="copyright">{{ env('APP_NAME') }} @ {{ date('Y') }}. All rights reserved.</p>
-                    <p class="copyright"><strong> Developed &amp; <i class="far fa-heart"></i> by </strong>
+                    <p class="copyright"><strong>Developed &amp;<i class="ion-heart"></i> by </strong>
                         <a href="#" target="_blank"> Me</a></p>
                     <ul class="icons">
                         <li><a target="_blank" href="#"><i class="ion-social-facebook-outline"></i></a></li>
@@ -20,11 +18,11 @@
             <div class="col-lg-4 col-md-6">
                 <div class="footer-section">
                     <h4 class="title"><b>{{ trans('Categories') }}</b></h4>
-                    {{-- <ul>
+                    <ul>
                         @foreach($categories as $category)
-                            <li><a href="{{ route('category.posts',$category->slug) }}">{{ $category->name }}</a></li>
+                            <li><a href="{{ route('category.index', $category->id) }}">{{ $category->name }}</a></li>
                         @endforeach
-                    </ul> --}}
+                    </ul>
                 </div><!-- footer-section -->
             </div><!-- col-lg-4 col-md-6 -->
 
@@ -33,7 +31,7 @@
 
                     <h4 class="title"><b>{{ trans('subcribe') }}</b></h4>
                     <div class="input-area">
-                        <form method="POST" action="#">
+                        <form method="POST" action="{{ route('subcriber.store') }}">
                             @csrf
                             <input class="email-input" name="email" type="email" placeholder="{{ trans('your_email') }}">
                             <button class="submit-btn" type="submit"><i class="icon ion-ios-email-outline"></i></button>
