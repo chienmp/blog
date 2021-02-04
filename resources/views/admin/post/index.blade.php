@@ -3,32 +3,27 @@
 @section('title', 'Post')
 
     @push('css')
-
+        <link rel="stylesheet" href="{{ asset('vendor/datatables/dataTables.bootstrap4.css') }}">
     @endpush
-    <link rel="stylesheet" href="{{ asset('bower_components/datatables/media/css/dataTables.bootstrap.css') }}">
 
 @section('content')
     <div class="container-fluid">
         <div class="block-header">
             <a class="btn btn-primary waves-effect" href="{{ route('posts.create') }}">
-                <i class="material-icons">add</i>
+                <i class="fas fa-plus-circle"></i>
                 <span>{{ trans('new_post') }}</span>
             </a>
         </div>
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="header">
-                        <h2>{{ trans('All_posts') }}
-                            <span class="badge bg-blue"></span>
-                        </h2>
-                    </div>
                     <div class="body">
                         <div class="table-responsive">
 
-                            <table id="example" class="table table-striped table-bordered">
+                            <table id="dataTable" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
+                                        <th>{{ trans('Id') }}</th>
                                         <th>{{ trans('title') }}</th>
                                         <th>{{ trans('image') }}</th>
                                         <th>{{ trans('status') }}</th>
@@ -36,16 +31,10 @@
                                         <th>{{ trans('action') }}</th>
                                     </tr>
                                 </thead>
-                                <tfoot>
-                                    <th>{{ trans('title') }}</th>
-                                    <th>{{ trans('image') }}</th>
-                                    <th>{{ trans('status') }}</th>
-                                    <th>{{ trans('view_count') }}</th>
-                                    <th>{{ trans('action') }}</th>
-                                </tfoot>
                                 <tbody>
-                                    @foreach ($posts as $post)
+                                    @foreach ($posts as $key => $post)
                                         <tr>
+                                            <td>{{ ++$key }}</td>
                                             <td>{{ Str::limit($post->title, '20') }}</td>
                                             <td>
                                                 <img height="100px" width="120px"
@@ -53,22 +42,24 @@
                                             </td>
                                             <td>
                                                 @if ($post->status == true)
-                                                    <span class="badge bg-blue">{{ trans('Posted') }}</span>
+                                                    <span class="badge badge-success">{{ trans('Posted') }}</span>
                                                 @else
-                                                    <span class="badge bg-pink">{{ trans('hidden') }}</span>
+                                                    <span class="badge badge-danger">{{ trans('hidden') }}</span>
                                                 @endif
                                             </td>
                                             <td>{{ $post->view_count }}</td>
                                             <td>
                                                 <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                                     <a href="{{ route('posts.edit', $post->id) }}"
-                                                        class="btn btn-info"><i class="material-icons">edit</i></a>
+                                                        class="btn btn-info"><i class="fas fa-edit"></i></a>
                                                     <a href="{{ route('posts.show', $post->id) }}"
-                                                        class="btn btn-success"><i class="material-icons">visibility</i></a>
+                                                        class="btn btn-success"><i class="far fa-eye"></i></a>
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" onclick="return ConfirmDelete()"
-                                                        class="btn btn-danger"><i class="material-icons">delete</i></button>
+                                                        class="btn btn-danger">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -83,7 +74,8 @@
 
     @endsection
     @push('js')
+        <script src="{{ asset('vendor/datatables/jquery-3.5.1.js') }}"></script>
+        <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
         <script src="{{ asset('js/dt.js') }}"></script>
-        <script src="{{ asset('bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('bower_components/datatables/media/js/dataTables.bootstrap.min.js') }}"></script>
     @endpush

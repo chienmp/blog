@@ -8,17 +8,16 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>@yield('title') - {{ config('app.name', 'Blog') }}</title>
     <!-- Font -->
 
     <link href="{{ asset('fonts/roboto.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/font-awsesome-all.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" />
     <!-- Stylesheets -->
     <link href="{{ asset('assets/frontend/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/frontend/css/swiper.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/frontend/css/ionicons.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('bower_components/flag-icon-css/css/flag-icon.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower/flag-icon-css/css/flag-icon.css') }}">
 
     @stack('css')
 </head>
@@ -36,6 +35,9 @@
 <script src="{{ asset('assets/frontend/js/bootstrap.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/swiper.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/scripts.js') }}"></script>
-@stack('js')
+<script src="{{ asset('js/sweetalert2.all.js') }}"></script>
+@include('sweetalert::alert')
+@yield('js')
+
 </body>
 </html>

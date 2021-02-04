@@ -9,17 +9,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{{ trans('admin_dashboard') }}</title>
-
+    <title>{{ trans('Dashboard') }}</title>
+    
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     {{-- <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet"> --}}
-
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('bower_components/flag-icon-css/css/flag-icon.css') }}">
+    @stack('css')
 </head>
 
 <body id="page-top">
@@ -30,28 +30,32 @@
         <!--End Sidebar -->
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
-        <!-- Topbar -->
-        @include('layouts.backend.topbar')
-        <!-- End Topbar -->
+                <!-- Topbar -->
+                @include('layouts.backend.topbar')
+                <div class="container-fluid">
+                    @yield('content')
+                </div>
+                <!-- End Topbar -->
             </div>
         </div>
     </div>
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
-
-        <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-        <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-        <!-- Core plugin JavaScript-->
-        <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-    <!-- Sweet alert 2 -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <!-- Custom scripts for all pages-->
     <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
     @include('sweetalert::alert')
+    <script src="{{ asset('vendor/sweetalert/delete.js') }}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+    
     @stack('js')
-        <!-- Custom scripts for all pages-->
-        <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-        </script>
+
 </body>
 </html>

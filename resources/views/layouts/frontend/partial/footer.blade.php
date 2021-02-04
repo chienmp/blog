@@ -4,7 +4,7 @@
 
             <div class="col-lg-4 col-md-6">
                 <div class="footer-section">
-                    <p class="copyright">{{ env('APP_NAME') }} @ {{ date('Y') }}. All rights reserved.</p>
+                    <p class="copyright">Blog @ {{ date('Y') }}. All rights reserved.</p>
                     <p class="copyright"><strong>Developed &amp;<i class="ion-heart"></i> by </strong>
                         <a href="#" target="_blank"> Me</a></p>
                     <ul class="icons">

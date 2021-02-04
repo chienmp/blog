@@ -12,8 +12,11 @@ npm-debug.log
 yarn-error.log
 bower.json
 .bowerrc
-/public/bower_components
+/public/bower
 /public/assets
-/public/css
 /public/js
+/public/css
+/storage/debugbar
+/public/img
+/public/vendor
 

@@ -41,5 +41,10 @@
     "hidden": "Hidden",
     "view_count": "View counts",
     "All_posts": "All Posts",
-    "new_post": "Add new post"
+    "new_post": "Add new post",
+    "about": "About Me",
+    "post_comment": "[0,1] Post Comment |[2,*] Post Comments",
+    "comment_alert": "For post a new comment. You need to login first",
+    "enter_com": "Enter your comment",
+    "submit_com": "Post Comment"
 }
