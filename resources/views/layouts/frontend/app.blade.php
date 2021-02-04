@@ -8,7 +8,6 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>@yield('title') - {{ config('app.name', 'Blog') }}</title>
     <!-- Font -->
 
@@ -19,6 +18,7 @@
     <link href="{{ asset('assets/frontend/css/swiper.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/frontend/css/ionicons.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('bower/flag-icon-css/css/flag-icon.css') }}">
+
     @stack('css')
 </head>
 <body>
@@ -38,5 +38,6 @@
 <script src="{{ asset('js/sweetalert2.all.js') }}"></script>
 @include('sweetalert::alert')
 @yield('js')
+
 </body>
 </html>

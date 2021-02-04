@@ -42,7 +42,6 @@
                 <span>{{ trans('Categories') }}</span>
             </a>
         </li>
-        
         <!-- Divider -->
         <hr class="sidebar-divider">
         <!-- Heading -->

@@ -1,6 +1,6 @@
 @extends('layouts.backend.app')
 
-@section('title', 'Post')
+@section('title','Post')
 
     @push('css')
         <!-- Bootstrap Select Css -->
@@ -78,4 +78,3 @@
         );
     </script>
 @endpush
-
