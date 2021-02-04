@@ -1,6 +1,5 @@
 <header>
     <div class="container-fluid position-relative no-side-padding">
-
         <a href="{{ route('home') }}" class="logo">Blog</a>
 
         <div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
@@ -37,6 +36,5 @@
                     placeholder="Search">
             </form>
         </div>
-
     </div><!-- conatiner -->
 </header>

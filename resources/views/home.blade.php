@@ -102,7 +102,6 @@
                         </div><!-- card -->
                     </div><!-- col-lg-4 col-md-6 -->
                 @endforelse
-
             </div><!-- row -->
 
             <a class="load-more-btn" href="#"><b>{{ trans('load_more') }}</b></a>
