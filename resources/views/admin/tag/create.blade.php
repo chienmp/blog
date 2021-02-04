@@ -25,10 +25,6 @@
                                 <input type="text" id="name" class="form-control" name="name"
                                 placeholder="{{ trans('tag_name') }}">
                             </div>
-                            <div class="form-line">
-                                <input type="text" id="name" class="form-control" name="slug"
-                                placeholder="{{ trans('tag_slug') }}">
-                            </div>
                         </div>
                         <a class="btn btn-danger  waves-effect"
                             href="{{ route('tags.index') }}">{{ trans('back') }}</a>

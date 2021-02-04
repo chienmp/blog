@@ -1,69 +1,42 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{ asset('blog-icon.png') }}">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <!--Fonts-->
-    <link href="asset('fonts/raleway.css')" rel="stylesheet" type="text/css">
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('bower_components/flag-icon-css/css/flag-icon.css') }}">
+
+    <title>@yield('title') - {{ config('app.name', 'Blog') }}</title>
+    <!-- Font -->
+
+    <link href="{{ asset('fonts/roboto.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" />
+    <!-- Stylesheets -->
+    <link href="{{ asset('assets/frontend/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/swiper.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/ionicons.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('bower/flag-icon-css/css/flag-icon.css') }}">
+    @stack('css')
 </head>
-
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                    </ul>
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        <li><a class="nav-link" href="{{ route('login') }}">{{ trans('Login') }}</a></li>
-                        <li><a class="nav-link" href="{{ route('register') }}">{{ trans('Register') }}</a></li>
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
 
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+@include('layouts.frontend.partial.header')
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+@yield('content')
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+@include('layouts.frontend.partial.footer')
+
+<!-- SCIPTS -->
+<script src="{{ asset('assets/frontend/js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/tether.min.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/bootstrap.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/swiper.js') }}"></script>
+<script src="{{ asset('assets/frontend/js/scripts.js') }}"></script>
+<script src="{{ asset('js/sweetalert2.all.js') }}"></script>
+@include('sweetalert::alert')
+@yield('js')
 </body>
-
 </html>
