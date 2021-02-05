@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function details($id){
+    public function details($id)
+    {
         $post = Post::findOrFail($id);
-        $randomposts = Post::all()->random(1);
-        $categories=Category::all();
+        $randomposts = Post::where('id', '<>', $id)->get()->random(1);
+        $categories = Category::all();
 
         return view('post', compact('post', 'randomposts', 'categories'));
     }

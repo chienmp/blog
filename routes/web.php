@@ -25,6 +25,7 @@ Route::post('subcribe', 'SubcriberController@store')->name('subcriber.store');
 Route::get('about', 'HomeController@about')->name('about');
 Route::group(['middleware'=>'auth'], function () {
     Route::get('favorite/{id}/add', 'FavoriteController@add')->name('post.favorite');
+    Route::post('comments/{post}', 'CommentController@store')->name('comment.store');
 });
 Route::get('/post/{id}', 'PostController@details')->name('post');
 Route::get('/home', 'HomeController@index')->name('home');

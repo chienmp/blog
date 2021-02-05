@@ -23,7 +23,6 @@
     "wait": "Please wait...",
     "your_email": "Your email",
     "password": "Password",
-    "comment": "Comment",
     "main_nav": "Main navigation",
     "add_tag": "Add New Tag",
     "submit": "Submit",
@@ -43,8 +42,10 @@
     "All_posts": "All Posts",
     "new_post": "Add new post",
     "about": "About Me",
-    "post_comment": "[0,1] Post Comment |[2,*] Post Comments",
+    "comment": "[0,1] Comment |[2,*] Comments",
     "comment_alert": "For post a new comment. You need to login first",
     "enter_com": "Enter your comment",
-    "submit_com": "Post Comment"
+    "submit_com": "Post Comment",
+    "no_comment": "No Comment yet. Be the first :)",
+    "Like": "Like post"
 }

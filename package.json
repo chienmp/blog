@@ -25,6 +25,6 @@
     },
     "dependencies": {
         "google-fonts-offline": "^0.1.5",
-        "sweetalert2": "^10.13.3"
+        "sweetalert2": "^10.14.0"
     }
 }
