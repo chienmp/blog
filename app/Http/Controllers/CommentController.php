@@ -21,7 +21,6 @@ class CommentController extends Controller
         $data =[
             "total" =>  $postComment->comments()->count(),
             'comment' => $postComment,
-            "2" => '2',
         ];
 
         return response()->json($data) ;

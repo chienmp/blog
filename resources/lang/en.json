@@ -47,5 +47,8 @@
     "enter_com": "Enter your comment",
     "submit_com": "Post Comment",
     "no_comment": "No Comment yet. Be the first :)",
-    "Like": "Like post"
+    "Like": "Like post",
+    "unique": "Unique field",
+    "email": "Email not in right form, check again",
+    "subcribe_submit": "Thank you, U will get email when we post new post"
 }

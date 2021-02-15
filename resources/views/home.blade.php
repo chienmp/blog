@@ -39,7 +39,6 @@
     </div><!-- slider -->
     <section class="blog-area section">
         <div class="container">
-
             <div class="row">
 
                 @forelse($posts as $post)
