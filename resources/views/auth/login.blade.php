@@ -13,7 +13,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('bower_components/flag-icon-css/css/flag-icon.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower/flag-icon-css/css/flag-icon.css') }}">
 </head>
 
 <body>

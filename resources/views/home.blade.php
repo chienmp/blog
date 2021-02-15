@@ -39,7 +39,6 @@
     </div><!-- slider -->
     <section class="blog-area section">
         <div class="container">
-
             <div class="row">
 
                 @forelse($posts as $post)
@@ -55,7 +54,8 @@
                                         alt="Profile Image">
                                 </a>
                                 <div class="blog-info">
-                                    <h4 class="title"><a href="{{ route('post', $post->id) }}"><b>{{ $post->title }}</b></a>
+                                    <h4 class="title"><a href="{{ route('post', $post->id) }}"><b>{{ $post->title }}</b></a><br><br>
+                                    <a class="active" href="{{ route('post', $post->id) }}">{{ trans('Read more')  }} &raquo;</a>
                                     </h4>
                                     @guest
                                         <ul class="post-footer">
@@ -65,7 +65,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('login') }}"><i class="ion-chatbubble"></i>3</a>
+                                                <a href="{{ route('login') }}"><i class="ion-chatbubble"></i>{{ $post->comments()->count() }}</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('login') }}"><i
@@ -80,7 +80,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('post', $post->id) }}"><i class="ion-chatbubble"></i>3</a>
+                                                <a href="{{ route('post', $post->id) }}"><i class="ion-chatbubble"></i>{{ $post->comments()->count() }}</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('post', $post->id) }}"><i

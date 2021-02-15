@@ -47,14 +47,19 @@
                             <ul class="post-icons">
                                 <li>
                                     @guest
-                                         <a href="{{ route('login') }}"><i class="far fa-heart"></i>{{ $post->favorite_to_users->count() }}</a>
+                                         <a href="{{ route('login') }}"><i class="far fa-heart"></i>{{ $post->favorite_to_users()->count() }}</a>
                                     @else
-                                          
                                         <div class="form-group">
                                             <input type="hidden" name="id" value="{{ $post->id }}">
                                         </div>
-                                          <button class="btn btn-link save-data" data-url ={{ route('post.favorite', $post->id) }} ><i class="far fa-heart"></i></button>
-                                          {{ $post->favorite_to_users()->count() }}
+                                        @if ($post->favorite_to_users()->count() > 0)
+                                        <a class="btn btn-link save-data" data-url ={{ route('post.favorite', $post->id) }} id="save" ><i class="ion-ios-heart"></i></a>
+                                        {{ trans('Like') }}
+                                        @else
+                                        <a class="btn btn-link save-data" data-url ={{ route('post.favorite', $post->id) }} id="save" ><i class="ion-ios-heart-outline"></i></a>
+                                        {{ trans('Like') }}
+                                        @endif
+            
                                     @endguest
                                 </li>
                             </ul>
@@ -106,7 +111,7 @@
                                             {{ $randompost->favorite_to_users->count() }}
                                         </a>
                                     </li>
-                                    <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+                                    <li><a href="#"><i class="ion-chatbubble"></i>{{ $randompost->comments()->count() }}</a></li>
                                     <li><a href="#"><i class="ion-eye"></i>{{ $randompost->view_count }}</a></li>
                                 </ul>
                             </div><!-- blog-info -->
@@ -120,7 +125,7 @@
     <section class="comment-section">
         <div class="container">
             <h4>
-               <b>{{ trans_choice('post_comment', $post->view_count) }}</b>
+               <b class="total-comments">{{ $post->comments()->count() }} {{ trans_choice('comment', $post->comments()->count()) }}</b>
             </h4>
             <div class="row">
                 <div class="col-lg-8 col-md-12">
@@ -128,29 +133,29 @@
                         @guest
                             <p>{{ trans('comment_alert') }}. <a href="{{ route('login') }}">{{ trans('Login') }}</a></p>
                         @else
-                            <form method="post" action="#">
+                            <div id="ajaxform" data-url="{{ route('comment.store', $post->id) }}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <textarea name="comment" rows="2" class="text-area-messge form-control"
+                                        <textarea name="comment" id="comment" rows="2" class="text-area-messge form-control"
                                                   placeholder="{{ trans('enter_com') }}" aria-required="true" aria-invalid="false"></textarea >
                                     </div><!-- col-sm-12 -->
                                     <div class="col-sm-12">
-                                        <button class="submit-btn" type="submit" id="form-submit"><b>{{ trans('submit_com') }}</b></button>
+                                        <button class="submit-btn" type="button" id="form-submit"><b>{{ trans('submit_com') }}</b></button>
                                     </div><!-- col-sm-12 -->
 
                                 </div><!-- row -->
-                            </form>
+                            </div>
                         @endguest
                     </div><!-- comment-form -->
-                    {{-- <h4><b>Comments({{ $post->comments()->count() }})</b></h4> --}}
-                    {{-- @if ($post->comments()->count() >0)
+                    {{-- <h4><b class="total-comments">{{ trans_choice('comment',$post->comments()->count() ) }} ({{ $post->comments()->count() }})</b></h4> --}}
+                     @if ($post->comments()->count() >0)
                         @foreach ($post->comments as $comment)
                             <div class="comments-area">
                                 <div class="comment">
                                     <div class="post-info">
                                         <div class="left-area">
-                                            <a class="avatar" href="#"><img src="{{ Storage::disk('public')->url('profile/'.$comment->user->image) }}" alt="Profile Image"></a>
+                                            <a class="avatar" href="#"><img src="{{ asset('storage/avatar/'.$comment->user->image) }}" alt="Profile Image"></a>
                                         </div>
                                         <div class="middle-area">
                                             <a class="name" href="#"><b>{{ $comment->user->name }}</b></a>
@@ -165,32 +170,46 @@
                         <div class="commnets-area ">
 
                             <div class="comment">
-                                <p>No Comment yet. Be the first :)</p>
+                                <p>{{ trans('no_comment') }}</p>
                         </div>
                         </div>
-                        @endif --}}
+                        @endif
                 </div><!-- col-lg-8 col-md-12 -->
             </div><!-- row -->
         </div><!-- container -->
     </section>
 @endsection
 
-@section('js')
-    <script>
-        $(document).on("click", ".save-data", function(params) {
-            let url = $(this).data('url');
-            console.log(url);
-            $.ajax({
-                url : url,
-                type: "get",
-
-                success:function(response){
-                console.log(response);
-                },
-                error : function(params) {
-                    alert(123);
-                }
-            })
-        });
+@push('js')
+    <script type="text/javascript">
+    /*  $(document).on("click", "#form-submit", function() {
+        let comment = $('#comment').val();
+        let message = $('#message').val();
+        let url = document.querySelector('#ajaxform').dataset.url;
+        let urlImage = window.location.hostname;
+            // console.log(comment, message, url);
+        $.ajax({
+          url: url,
+          type:"POST",
+          data:{
+            "_token": "{{ csrf_token() }}",
+            comment:comment,
+          },
+          success:function(response){
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Comment success',
+                showConfirmButton: false,
+                timer: 1500,
+                toast: true,
+            });
+            console.log(response);
+            document.querySelector('.total-comments').innerHTML = "";
+            document.querySelector('.total-comments').innerHTML = `${response.total} Comments`;
+             );
+          },
+         }); 
+        }); */
     </script>
-@endsection 
+@endpush 

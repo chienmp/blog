@@ -36,7 +36,11 @@
                             <input class="email-input" name="email" type="email" placeholder="{{ trans('your_email') }}">
                             <button class="submit-btn" type="submit"><i class="icon ion-ios-email-outline"></i></button>
                         </form>
+                        
                     </div>
+                    @error('email')
+                            <span class="text-danger"> {{ $message }} </span>
+                    @enderror
                 </div>
             </div>
         </div>
