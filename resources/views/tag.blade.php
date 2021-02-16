@@ -1,46 +1,18 @@
 @extends('layouts.frontend.app')
 
-@section('title', 'Home')
+@section('title', 'Tag')
     @push('css')
-        <link href="{{ asset('assets/frontend/css/home/styles.css') }}" rel="stylesheet">
-        <link href="{{ asset('assets/frontend/css/home/responsive.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/frontend/css/category/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/frontend/css/category/responsive.css') }}" rel="stylesheet">
     @endpush
 
 @section('content')
-    <div class="main-slider">
-        <div class="swiper-container position-static" data-slide-effect="slide" data-autoheight="false"
-            data-swiper-speed="500" data-swiper-autoplay="10000" data-swiper-margin="0" data-swiper-slides-per-view="4"
-            data-swiper-breakpoints="true" data-swiper-loop="true">
-            <div class="swiper-wrapper">
-
-                @forelse($categories as $category)
-                    <div class="swiper-slide">
-                        <a class="slider-category" href="{{ route('cate.posts', $category->id) }}">
-                            <div class="blog-image"><img width="333px" height="450px"
-                                    src="{{ asset('storage/category/' . $category->image) }}" alt="{{ $category->name }}">
-                            </div>
-                            <div class="category">
-                                <div class="display-table center-text">
-                                    <div class="display-table-cell">
-                                        <h3><b>{{ $category->name }}</b></h3>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </a>
-                    </div><!-- swiper-slide -->
-                @empty
-                    <div class="swiper-slide">
-                        <strong>{{ trans('no_data') }}</strong>
-                    </div><!-- swiper-slide -->
-                @endforelse
-            </div><!-- swiper-wrapper -->
-        </div><!-- swiper-container -->
+    <div class="slider display-table center-text">
+        <h1 class="title display-table-cell"><b>{{ $tag->name }}</b></h1>
     </div><!-- slider -->
     <section class="blog-area section">
         <div class="container">
             <div class="row">
-
                 @forelse($posts as $post)
                     <div class="col-lg-4 col-md-6">
                         <div class="card h-100">
@@ -54,8 +26,10 @@
                                         alt="Profile Image">
                                 </a>
                                 <div class="blog-info">
-                                    <h4 class="title"><a href="{{ route('post', $post->id) }}"><b>{{ $post->title }}</b></a><br><br>
-                                    <a class="active" href="{{ route('post', $post->id) }}">{{ trans('Read more')  }} &raquo;</a>
+                                    <h4 class="title"><a
+                                            href="{{ route('post', $post->id) }}"><b>{{ $post->title }}</b></a><br><br>
+                                        <a class="active" href="{{ route('post', $post->id) }}">{{ trans('Read more') }}
+                                            &raquo;</a>
                                     </h4>
                                     @guest
                                         <ul class="post-footer">
@@ -65,14 +39,15 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('login') }}"><i class="ion-chatbubble"></i>{{ $post->comments()->count() }}</a>
+                                                <a href="{{ route('login') }}"><i
+                                                        class="ion-chatbubble"></i>{{ $post->comments()->count() }}</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('login') }}"><i
                                                         class="ion-eye"></i>{{ $post->view_count }}</a>
                                             </li>
                                         </ul>
-                                        @else   
+                                    @else
                                         <ul class="post-footer">
                                             <li>
                                                 <a href="{{ route('post', $post->id) }}"><i class="ion-heart"></i>
@@ -80,15 +55,16 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('post', $post->id) }}"><i class="ion-chatbubble"></i>{{ $post->comments()->count() }}</a>
+                                                <a href="{{ route('post', $post->id) }}"><i
+                                                        class="ion-chatbubble"></i>{{ $post->comments()->count() }}</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('post', $post->id) }}"><i
-                                                    class="ion-eye"></i>{{ $post->view_count }}</a>
+                                                        class="ion-eye"></i>{{ $post->view_count }}</a>
                                             </li>
                                         </ul>
                                     @endguest
-                                        
+
                                 </div><!-- blog-info -->
                             </div><!-- single-post -->
                         </div><!-- card -->
@@ -103,12 +79,10 @@
                     </div><!-- col-lg-4 col-md-6 -->
                 @endforelse
             </div><!-- row -->
-
-            <a class="load-more-btn" href="#"><b>{{ trans('load_more') }}</b></a>
-
         </div><!-- container -->
-    </section><!-- section -->
+    </section>
 @endsection
+
 @push('js')
 
 @endpush

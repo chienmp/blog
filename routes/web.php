@@ -22,7 +22,8 @@ Auth::routes();
 Route::get('posts','Admin\PostController@index')->name('post.index');
 Route::get('/search','SearchController@search')->name('search');
 Route::post('subcribe', 'SubcriberController@store')->name('subcriber.store');
-Route::get('about', 'HomeController@about')->name('about');
+Route::get('/category/{id}', 'PostController@showPostByCate')->name('cate.posts');
+Route::get('tag/{id}', 'PostController@showPostByTag')->name('tag.posts');
 Route::group(['middleware'=>'auth'], function () {
     Route::get('favorite/{id}/add', 'FavoriteController@add')->name('post.favorite');
     Route::post('comments/{post}', 'CommentController@store')->name('comment.store');
