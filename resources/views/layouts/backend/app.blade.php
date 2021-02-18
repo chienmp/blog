@@ -18,7 +18,7 @@
         rel="stylesheet"> --}}
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('bower_components/flag-icon-css/css/flag-icon.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower/flag-icon-css/css/flag-icon.css') }}">
     @stack('css')
 </head>
 
