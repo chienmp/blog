@@ -33,6 +33,7 @@
 <!-- SCIPTS -->
 <script src="{{ asset('assets/frontend/js/jquery-3.1.1.min.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/tether.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap3-typeahead.min.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/bootstrap.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/swiper.js') }}"></script>
 <script src="{{ asset('assets/frontend/js/scripts.js') }}"></script>

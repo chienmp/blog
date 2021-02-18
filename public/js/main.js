@@ -93,3 +93,12 @@ $(document).on("click", "#save", function(){
           },
          }); 
         });
+
+       var route = "{{ route('search') }}";
+       $('#search').typeahead({
+           source: function (query, process) {
+               return $.get(route, {query : query}, function (data) {
+                   return process(data);
+               });
+           }
+       });
