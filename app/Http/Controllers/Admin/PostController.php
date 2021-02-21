@@ -55,8 +55,8 @@ class PostController extends Controller
             $post->status = false;
         }
         $post->save();
-        $post->categories()->attach($request->cate);
-        $post->tags()->attach($request->tag);
+        $post->categories()->attach($request->categories);
+        $post->tags()->attach($request->tags);
         $request->image->storeAs('public/post', $filename);
         Alert::success('Successfully', 'Post created');
 
@@ -115,7 +115,7 @@ class PostController extends Controller
             $request->image->storeAs('public/post', $filename);
         }
         $post->save();
-        $post->categories()->sync($request->cates);
+        $post->categories()->sync($request->categories);
         $post->tags()->sync($request->tags);
         Alert::success('Success', 'Post updated');
 

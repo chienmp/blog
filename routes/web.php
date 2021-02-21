@@ -19,7 +19,8 @@ Route::get('/', function () {
 }); */
 
 Auth::routes();
-Route::get('posts','Admin\PostController@index')->name('post.index');
+Route::get('posts','PostController@index')->name('post.index');
+Route::get('posts/fetch', 'PostController@fetch')->name('posts.fetch');
 Route::get('/search','SearchController@search')->name('search');
 Route::post('subcribe', 'SubcriberController@store')->name('subcriber.store');
 Route::get('/category/{id}', 'PostController@showPostByCate')->name('cate.posts');
@@ -36,4 +37,5 @@ Route::group(['prefix' => 'admin', 'namespace'=>'Admin', 'middleware'=>'admin'],
     Route::resource('tags', 'TagController');
     Route::resource('category', 'CategoryController');
     Route::resource('posts', 'PostController');
+    Route::resource('subcribers', 'SubcriberController');
 });
