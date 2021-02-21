@@ -4,12 +4,13 @@
 
     @push('css')
         <!-- Bootstrap Select Css -->
-        <link href="{{ asset('bower_components/bootstrap-select/dist/css/bootstrap-select.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bower/bootstrap-select/dist/css/bootstrap-select.css') }}" rel="stylesheet" />
     @endpush
 
 @section('content')
     <h3>{{ trans('new_post') }}</h3>
-    <form>
+    <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
+        @csrf
         <div class="form-group">
             <label for="title">{{ trans('post_title') }}</label>
             <input type="text" name="title" class="form-control">
@@ -46,15 +47,17 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="body">Body</label>
-            <textarea id="id"></textarea>
+            <label for="body">{{ trans('body') }}</label>
+            <textarea id="id" name="body"></textarea>
         </div>
+        <a  class="btn btn-danger m-t-15 waves-effect" href="{{ route('posts.index') }}">{{ trans('back') }}</a>
+        <button type="submit" class="btn btn-primary m-t-15 waves-effect">{{ trans('submit') }}</button>
     </form>
 @endsection
 
 @push('js')
     <!-- Select Plugin Js -->
-    <script src="{{ asset('bower_components/bootstrap-select/dist/js/bootstrap-select.js') }}"></script>
+    <script src="{{ asset('bower/bootstrap-select/dist/js/bootstrap-select.js') }}"></script>
     <!-- TinyMCE -->
     <script>
         var loadFile = function(event) {
@@ -68,12 +71,17 @@
         };
 
     </script>
-    <script src="{{ asset('bower_components/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('bower/tinymce/tinymce.min.js') }}"></script>
     <script>
         tinymce.init(
             {
                 selector:"#id",
-                plugins:"image",
+                plugins: [
+                    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                    'searchreplace wordcount visualblocks visualchars code fullscreen',
+                    'insertdatetime media nonbreaking save table contextmenu directionality',
+                    'emoticons template paste textcolor colorpicker textpattern imagetools'
+                ],
             }
         );
     </script>

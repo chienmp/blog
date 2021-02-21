@@ -70,15 +70,15 @@
         </li>
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" href="{{ route('subcribers.index') }}">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>{{ trans('Subcriber') }}</span></a>
         </li>
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="tables.html">
+            <a class="nav-link" href="{{ route('admin.profile') }}">
                 <i class="fas fa-fw fa-table"></i>
-                <span>{{ trans('Logout') }}</span></a>
+                <span>{{ trans('profile') }}</span></a>
         </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">

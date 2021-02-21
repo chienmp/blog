@@ -9,6 +9,25 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+    public function index()
+    {
+        $posts = Post::latest()->paginate(3);
+        $categories =Category::all();
+
+        return view('posts', compact('posts','categories'));
+    }
+
+    public function fetch(Request $request)
+    {
+        if($request->ajax())
+        {
+            $data = Post::latest()->paginate(3);
+            
+            return view('posts_child', compact('posts'))->render();
+        }
+    }
+
     public function details($id)
     {
         $post = Post::findOrFail($id);

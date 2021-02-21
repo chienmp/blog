@@ -46,8 +46,9 @@
                         <div class="card h-100">
                             <div class="single-post post-style-1">
 
-                                <div class="blog-image"><img
-                                        src="{{ asset('assets/frontend/images/averie-woodard-319832.jpg') }}"></div>
+                                <div class="blog-image">
+                                    <img src="{{ asset('storage/post/' . $post->image)  }}" alt="{{ $post->title }}">
+                                </div>
 
                                 <a class="avatar" href="#">
                                     <img src="{{ asset('bower/adminbsb-materialdesign/images/image-gallery/15.jpg') }}"
@@ -104,7 +105,7 @@
                 @endforelse
             </div><!-- row -->
 
-            <a class="load-more-btn" href="#"><b>{{ trans('load_more') }}</b></a>
+            <a class="load-more-btn" href="{{ route('post.index') }}"><b>{{ trans('load_more') }}</b></a>
 
         </div><!-- container -->
     </section><!-- section -->
