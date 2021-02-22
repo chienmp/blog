@@ -26,6 +26,8 @@ class ProfileRequest extends FormRequest
         return [
             'name' =>  'required',
             'email' => 'email|required',
+            'oldpassword' => 'required',
+            'newpassword' => 'required',
         ];
     }
 
@@ -34,6 +36,8 @@ class ProfileRequest extends FormRequest
         return [
             'name.required' => trans('required'),
             'email.required' => trans('required'),
+            'oldpassword.required' => trans('required'),
+            'newpassword.required' => trans('required'),
         ];
     }
 }

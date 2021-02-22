@@ -22,5 +22,9 @@ class FavoriteController extends Controller
         } else {
             $user->favorite_posts()->detach($post);
         }
+
+        return response()->json([
+            'status' => $favorite
+        ]);
     }
 }
