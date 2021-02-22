@@ -69,7 +69,7 @@
                                 </li>
                             </ul>
                             <ul class="icons">
-                                <li>SHARE : </li>
+                                <li>{{ trans('Share') }}  </li>
                                 <li><a href="#"><i class="ion-social-facebook"></i></a></li>
                                 <li><a href="#"><i class="ion-social-twitter"></i></a></li>
                                 <li><a href="#"><i class="ion-social-instagram"></i></a></li>

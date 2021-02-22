@@ -38,4 +38,6 @@ Route::group(['prefix' => 'admin', 'namespace'=>'Admin', 'middleware'=>'admin'],
     Route::resource('category', 'CategoryController');
     Route::resource('posts', 'PostController');
     Route::resource('subcribers', 'SubcriberController');
+    Route::get('profile', 'ProfileController@index')->name('admin.profile');
+    Route::post('profile-update', 'ProfileController@updateProfile')->name('profile.update');
 });

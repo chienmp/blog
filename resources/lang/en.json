@@ -54,5 +54,9 @@
     "unique": "Unique field",
     "email": "Email not in right form, check again",
     "subcribe_submit": "Thank you, U will get email when we post new post",
-    "result_for" : "[0,1] Result for |[2,*] Results for"
+    "result_for" : "[0,1] Result for |[2,*] Results for",
+    "personal_info" : "Personal Info",
+    "name": "Username",
+    "profile": "My profle",
+    "Share" : "Share :"
 }

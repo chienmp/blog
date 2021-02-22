@@ -48,7 +48,7 @@ class CategoryController extends Controller
         $request->image->storeAs('public/category', $filename);
         Alert::success('Successfully', 'Category created');
 
-        return back();
+        return redirect()->route('category.index');
     }
 
     /**
