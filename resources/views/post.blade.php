@@ -8,7 +8,7 @@
     <link href="{{ asset('assets/frontend/css/single-post/styles.css') }}" rel="stylesheet">
 @endpush
 
-@section('content')
+@section('content') 
     <div class="header-bg">
     </div>
 
@@ -18,22 +18,18 @@
                 <div class="col-lg-8 col-md-12 no-right-padding">
                     <div class="main-post">
                         <div class="blog-post-inner">
-                            <div class="post-info">
-                                <div class="left-area">
-                                    <a class="avatar" href="#"><img
-                                            src="{{ asset('photo-1-15824327621401217058744.webp') }}"
-                                            alt="Profile Image"></a>
-                                </div>
-                                <div class="middle-area">
-                                    <a class="name" href="#"><b>Author: PMChien</b></a>
-                                    <h6 class="date">on {{ $post->created_at }}</h6>
-                                </div>
-                            </div><!-- post-info -->
-                            <h3 class="title">
+                            <!-- post-info -->
+                            <h2 class="title">
                                 <a href="#">
                                     <b>{{ $post->title }}</b>
                                 </a>
-                            </h3>
+                            </h2>
+                            <div class="post-info">
+                                <div class="middle-area">
+                                    <p class="name" href="#"><b>{{ trans('created_at') }}</b></p>
+                                    <small class="date">on {{ $post->created_at }}</small>
+                                </div>
+                            </div>
                             <div class="para">
                                 {!! html_entity_decode($post->body) !!}
                             </div>
@@ -226,7 +222,7 @@
                 document.querySelector('.total-comments').innerHTML = `${response.total} Comments`;
                  );
               },
-             }); 
+             });
             }); */
 
     </script>

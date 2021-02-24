@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Auth;
@@ -26,5 +27,13 @@ class FavoriteController extends Controller
         return response()->json([
             'status' => $favorite
         ]);
+    }
+
+    public function favorPost()
+    {
+        $categories = Category::all();
+        $posts = Auth::user()->favorite_posts()->get();
+
+        return view('favorite', compact('posts', 'categories'));
     }
 }

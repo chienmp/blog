@@ -16,7 +16,7 @@
                 @forelse($categories as $category)
                     <div class="swiper-slide">
                         <a class="slider-category" href="{{ route('cate.posts', $category->id) }}">
-                            <div class="blog-image"><img width="333px" height="450px"
+                            <div class="blog-image"><img class="cate-slider"
                                     src="{{ asset('storage/category/' . $category->image) }}" alt="{{ $category->name }}">
                             </div>
                             <div class="category">
@@ -49,14 +49,11 @@
                                 <div class="blog-image">
                                     <img src="{{ asset('storage/post/' . $post->image)  }}" alt="{{ $post->title }}">
                                 </div>
-
-                                <a class="avatar" href="#">
-                                    <img src="{{ asset('bower/adminbsb-materialdesign/images/image-gallery/15.jpg') }}"
-                                        alt="Profile Image">
-                                </a>
                                 <div class="blog-info">
                                     <h4 class="title"><a href="{{ route('post', $post->id) }}"><b>{{ $post->title }}</b></a><br><br>
-                                    <a class="active" href="{{ route('post', $post->id) }}">{{ trans('Read more')  }} &raquo;</a>
+                                    <a class="active" href="{{ route('post', $post->id) }}">
+                                        <small>{!! Str::limit(html_entity_decode($post->body), '20') !!}</small>
+                                    </a>
                                     </h4>
                                     @guest
                                         <ul class="post-footer">
@@ -73,7 +70,7 @@
                                                         class="ion-eye"></i>{{ $post->view_count }}</a>
                                             </li>
                                         </ul>
-                                        @else   
+                                        @else
                                         <ul class="post-footer">
                                             <li>
                                                 <a href="{{ route('post', $post->id) }}"><i class="ion-heart"></i>
@@ -89,7 +86,7 @@
                                             </li>
                                         </ul>
                                     @endguest
-                                        
+
                                 </div><!-- blog-info -->
                             </div><!-- single-post -->
                         </div><!-- card -->

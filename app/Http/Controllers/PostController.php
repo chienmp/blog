@@ -23,7 +23,7 @@ class PostController extends Controller
         if($request->ajax())
         {
             $data = Post::latest()->paginate(3);
-            
+
             return view('posts_child', compact('posts'))->render();
         }
     }
@@ -31,7 +31,7 @@ class PostController extends Controller
     public function details($id)
     {
         $post = Post::findOrFail($id);
-        $blogKey = 'blog_' . $post->id;
+        $blogKey = config('post.blog') . $post->id;
         if (!session()->has($blogKey)) {
             $post->increment('view_count');
             session()->put($blogKey, 1);
@@ -45,11 +45,12 @@ class PostController extends Controller
 
     public function showPostByCate($id)
     {
+        // $categories = Category::all();
+        // $posts = Category::with('posts')->find($id)->get();
         $categories = Category::all();
-        $category = Category::findOrFail($id);
-        $posts = $category->posts()->get();
-
-        return view('category', compact('category', 'posts', 'categories'));
+        $category = $categories->where('id', $id)->first()->load('posts');
+        $posts = $category->posts;
+        return view('category', compact('posts', 'categories'));
     }
 
     public function showPostByTag($id)

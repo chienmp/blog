@@ -1,12 +1,18 @@
 // const { default: Swal } = require("sweetalert2");
-
-function ConfirmDelete() {
-    var x = confirm("Are you sure you want to delete?");
-    if (x)
-        return true;
-    else
-        return false;
-}
+$( "#delete" ).click(function() {
+     var x = confirm("Are you sure you want to delete?");
+     if (x)
+       return true;
+   else
+      return false;
+  });
+//function ConfirmDelete() {
+    //var x = confirm("Are you sure you want to delete?");
+    //if (x)
+       // return true;
+    //else
+      //  return false;
+//}
 
 $(document).on("click", "#save", function(){
     let url =document.querySelector('#save').dataset.url;

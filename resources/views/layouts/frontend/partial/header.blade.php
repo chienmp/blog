@@ -21,9 +21,11 @@
             @else
                 @if (Auth::user()->role->id == 1)
                     <li><a href="{{ route('dashboard') }}">{{ trans('Dashboard') }}</a></li>
+                    <li><a href="{{ route('favor') }}">{{ trans('Favor') }}</a></li>
                 @endif
                 @if (Auth::user()->role->id == 2)
-                    <li><a href="{{ route('about') }}">{{ trans('Profile') }}</a></li>
+                    <li><a href="{{ route('profile') }}">{{ trans('Profile') }}</a></li>
+                    <li><a href="{{ route('favor') }}">{{ trans('Favor') }}</a></li>
                 @endif
             @endguest
         </ul><!-- main-menu -->

@@ -9,12 +9,12 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {
-    public function index() 
+    public function index()
     {
         $user = Auth::user();
         $categories = Category::all();
 
-        return view('profile', compact('profile', 'categories'));
+        return view('profile', compact('user', 'categories'));
     }
 
     public function updateProfile(Request $request)

@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="slider display-table center-text">
-        <h1 class="title display-table-cell"><b>{{ $category->name }}</b></h1>
+        {{-- <h5 class="title display-table-cell"><b>{{ $category->name }}</b></h5> --}}
     </div><!-- slider -->
     <section class="blog-area section">
         <div class="container">
@@ -45,7 +45,7 @@
                                                         class="ion-eye"></i>{{ $post->view_count }}</a>
                                             </li>
                                         </ul>
-                                        @else   
+                                        @else
                                         <ul class="post-footer">
                                             <li>
                                                 <a href="{{ route('post', $post->id) }}"><i class="ion-heart"></i>
@@ -61,7 +61,7 @@
                                             </li>
                                         </ul>
                                     @endguest
-                                        
+
                                 </div><!-- blog-info -->
                             </div><!-- single-post -->
                         </div><!-- card -->
@@ -81,5 +81,5 @@
 @endsection
 
 @push('js')
-    
+
 @endpush

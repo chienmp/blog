@@ -36,7 +36,7 @@
                                         <form action="{{ route('subcribers.destroy', $sub->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" onclick="return ConfirmDelete()"
+                                            <button type="submit" id="delete"
                                                 class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                                         </form>
                                     </td>

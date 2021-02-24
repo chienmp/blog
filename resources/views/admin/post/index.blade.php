@@ -19,7 +19,6 @@
                 <div class="card">
                     <div class="body">
                         <div class="table-responsive">
-
                             <table id="dataTable" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
@@ -56,7 +55,7 @@
                                                         class="btn btn-success"><i class="far fa-eye"></i></a>
                                                     @csrf
                                                     @method('delete')
-                                                    <button type="submit" onclick="return ConfirmDelete()"
+                                                    <button type="submit" id="delete" onclick="return ConfirmDelete()"
                                                         class="btn btn-danger">
                                                         <i class="fas fa-trash-alt"></i>
                                                     </button>

@@ -1,30 +1,32 @@
-@extends('layouts.frontend.app')
-@section('title', 'Update Proflie')
-@push('css')
-<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-<link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
-@endpush
+<!DOCTYPE html>
+<html>
 
-@section('content')
-<div class="container">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ trans('Profile') }}</title>
+  <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/sb-admin-2.css') }}" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
     <h1>{{ trans('Edit profile') }}</h1>
-  	<hr>
-	<div class="row">
-      <!-- left column -->
-      <div class="col-md-3">
-        <div class="text-center">
-            <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('profile.update') }}">
-                @csrf
-          <img id="img" src="{{ asset('storage/avatar/'. $user->image) }}" class="avatar img-circle" alt="avatar" >
-          <h6>{{ trans('upload_image') }}</h6>
-          
-          <input type="file" name="image" onchange="loadFile(event)" class="form-control">
+    <hr>
+    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('profile.update') }}">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-3">
+          <div class="text-center">
+            @csrf
+            <img id="img" src="{{ asset('storage/avatar/'. $user->image) }}" class="avatar img-circle" alt="avatar">
+            <h6>{{ trans('upload_image') }}</h6>
+            <input type="file" name="image" onchange="loadFile(event)" class="form-control">
+          </div>
         </div>
-      </div>
-      
-      <!-- edit form column -->
-      <div class="col-md-9 personal-info">
-        <h3>{{ trans('personal_info') }}</h3>
+        <!-- edit form column -->
+        <div class="col-md-9 personal-info">
+          <h3>{{ trans('personal_info') }}</h3>
           <div class="form-group">
             <label class="col-lg-3 control-label">{{ trans('name') }}</label>
             <div class="col-lg-8">
@@ -45,15 +47,12 @@
               <input type="reset" class="btn btn-outline-info" value="{{ trans('Cancel') }}">
             </div>
           </div>
-        </form>
+        </div>
       </div>
+    </form>
   </div>
-</div>
-<hr>
-@endsection
-
-@push('js')
-<script>
+  <hr>
+  <script>
     var loadFile = function(event) {
         document.getElementById("img").height = "200";
         document.getElementById("img").width = "200";
@@ -64,5 +63,7 @@
         }
     };
 
-</script>
-@endpush
+  </script>
+</body>
+
+</html>

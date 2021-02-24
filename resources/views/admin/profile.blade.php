@@ -17,12 +17,10 @@
                 @csrf
           <img id="img" src="{{ asset('storage/avatar/'. $user->image) }}" class="avatar img-circle" alt="avatar" >
           <h6>{{ trans('upload_image') }}</h6>
-          
+
           <input type="file" name="image" onchange="loadFile(event)" class="form-control">
         </div>
       </div>
-      
-      <!-- edit form column -->
       <div class="col-md-9 personal-info">
         <h3>{{ trans('personal_info') }}</h3>
           <div class="form-group">

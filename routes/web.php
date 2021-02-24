@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/* 
+/*
 Route::get('/', function () {
     return view('welcome');
 }); */
@@ -28,6 +28,9 @@ Route::get('tag/{id}', 'PostController@showPostByTag')->name('tag.posts');
 Route::group(['middleware'=>'auth'], function () {
     Route::get('favorite/{id}/add', 'FavoriteController@add')->name('post.favorite');
     Route::post('comments/{post}', 'CommentController@store')->name('comment.store');
+    Route::get('profile', 'ProfileController@index')->name('profile');
+    Route::post('update-profile', 'ProfileController@updateProfile')->name('profile.update');
+    Route::get('favorite', 'FavoriteController@favorPost')->name('favor');
 });
 Route::get('/post/{id}', 'PostController@details')->name('post');
 Route::get('/', 'HomeController@index')->name('home');
