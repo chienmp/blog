@@ -13,9 +13,9 @@ yarn-error.log
 bower.json
 .bowerrc
 /public/bower
-/public/assets
-/public/js
-/public/css
+/public/assets/backend
+
+
 /storage/debugbar
 /public/img
 /public/vendor
