@@ -59,5 +59,8 @@
     "name": "Username",
     "profile": "Hồ sơ",
     "Share" : "Chia sẻ :",
-    "Posts": "Bài viết"
+    "Posts": "Bài viết",
+    "new_post_mail": "Xin chào, chúng tôi vừa thêm bài viết mới, có thể bạn sẽ thích đó !",
+    "send_mail": "Gửi mail cho subcriber",
+    "sent_mail": "Gửi mail thành công cho subcriber"
 }
