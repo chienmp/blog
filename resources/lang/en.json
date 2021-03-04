@@ -58,5 +58,9 @@
     "personal_info" : "Personal Info",
     "name": "Username",
     "profile": "My profle",
-    "Share" : "Share :"
+    "Share" : "Share :",
+    "new_post_mail": "Hi, we added new post! Maybe you want to read this ?",
+    "send_mail": "Send mail to subcriber",
+    "success": "Success",
+    "sent_mail": "Mail has been sent to subcribers"
 }
