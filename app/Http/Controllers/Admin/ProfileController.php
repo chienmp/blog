@@ -20,11 +20,9 @@ class ProfileController extends Controller
 
     public function updateProfile(Request $request)
     {
-        
+
         $user = User::findOrFail(Auth::id());
         $filename = '';
-        /* $user->name = $request->name;
-        $user->email = $request->email; */
         if($request->hasFile('image')){
             $filename = $request->image->getClientOriginalName();
             $user->image = $filename;

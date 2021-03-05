@@ -12,7 +12,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::latest()->paginate(3);
+        $posts = Post::latest()->paginate(config('post.allposts'));
         $categories =Category::all();
 
         return view('posts', compact('posts','categories'));
@@ -22,8 +22,8 @@ class PostController extends Controller
     {
         if($request->ajax())
         {
-            $data = Post::latest()->paginate(3);
-            
+            $data = Post::latest()->paginate(config('post.home'));
+
             return view('posts_child', compact('posts'))->render();
         }
     }
@@ -31,13 +31,13 @@ class PostController extends Controller
     public function details($id)
     {
         $post = Post::findOrFail($id);
-        $blogKey = 'blog_' . $post->id;
+        $blogKey = config('post.blog') . $post->id;
         if (!session()->has($blogKey)) {
             $post->increment('view_count');
-            session()->put($blogKey, 1);
+            session()->put($blogKey, config('post.viewcount'));
         }
 
-        $randomposts = Post::where('id', '<>', $id)->get()->random(1);
+        $randomposts = Post::where('id', '<>', $id)->get()->random(config('post.randomposts'));
         $categories = Category::all();
 
         return view('post', compact('post', 'randomposts', 'categories'));

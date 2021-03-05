@@ -1,5 +1,5 @@
 /*!
-* sweetalert2 v10.13.3
+* sweetalert2 v10.14.0
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -1789,6 +1789,7 @@
     closeButtonAriaLabel: 'Close this dialog',
     loaderHtml: '',
     showLoaderOnConfirm: false,
+    showLoaderOnDeny: false,
     imageUrl: undefined,
     imageWidth: undefined,
     imageHeight: undefined,
@@ -3016,6 +3017,10 @@
   };
 
   var deny = function deny(instance, innerParams, value) {
+    if (innerParams.showLoaderOnDeny) {
+      showLoading(getDenyButton());
+    }
+
     if (innerParams.preDeny) {
       var preDenyPromise = Promise.resolve().then(function () {
         return asPromise(innerParams.preDeny(value, innerParams.validationMessage));
@@ -3622,7 +3627,7 @@
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '10.13.3';
+  SweetAlert.version = '10.14.0';
 
   var Swal = SweetAlert;
   Swal["default"] = Swal;
