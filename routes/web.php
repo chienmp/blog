@@ -41,4 +41,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('subcribers', 'SubcriberController');
     Route::get('profile', 'ProfileController@index')->name('admin.profile');
     Route::post('profile-update', 'ProfileController@updateProfile')->name('profile.update');
+    Route::get('chart-js', 'DashboardController@getDataChartJs')->name('chart-js');
 });
