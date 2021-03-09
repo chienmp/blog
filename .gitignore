@@ -14,9 +14,7 @@ bower.json
 .bowerrc
 /public/bower
 /public/assets/backend
-
-
+/coverage/
 /storage/debugbar
 /public/img
 /public/vendor
-
